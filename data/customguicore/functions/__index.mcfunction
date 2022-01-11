@@ -1,0 +1,2 @@
+#> customguicore:__index
+# @private
