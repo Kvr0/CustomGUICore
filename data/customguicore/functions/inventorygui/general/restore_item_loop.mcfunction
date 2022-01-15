@@ -9,8 +9,6 @@
     data modify block -30000000 0 43885 Items set value []
     data modify block -30000000 0 43885 Items append from storage customguicore: Temp.Clone.Restore.Items[0]
 
-tellraw @p {"score":{"name":"$Slot","objective":"Temporary"}}
-
 ## Restore
 ### Hotbar      (0 - 8)
     execute if score $Slot Temporary matches 0 run item replace entity @s hotbar.0 from block -30000000 0 43885 container.0
