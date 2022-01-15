@@ -9,6 +9,8 @@
     data modify block -30000000 0 43885 Items set value []
     data modify block -30000000 0 43885 Items append from storage customguicore: Temp.Clone.Restore.Items[0]
 
+tellraw @p {"score":{"name":"$Slot","objective":"Temporary"}}
+
 ## Restore
 ### Hotbar      (0 - 8)
     execute if score $Slot Temporary matches 0 run item replace entity @s hotbar.0 from block -30000000 0 43885 container.0
@@ -49,12 +51,12 @@
     execute if score $Slot Temporary matches 34 run item replace entity @s inventory.25 from block -30000000 0 43885 container.0
     execute if score $Slot Temporary matches 35 run item replace entity @s inventory.26 from block -30000000 0 43885 container.0
 ### Armor       (100 - 103)
-    execute if score $Slot Temporary matches 100 run item replace entity @s armor.feet from block -30000000 0 43885 container.0
-    execute if score $Slot Temporary matches 101 run item replace entity @s armor.legs from block -30000000 0 43885 container.0
-    execute if score $Slot Temporary matches 102 run item replace entity @s armor.chest from block -30000000 0 43885 container.0
-    execute if score $Slot Temporary matches 103 run item replace entity @s armor.head from block -30000000 0 43885 container.0
+    #execute if score $Slot Temporary matches 100 run item replace entity @s armor.feet from block -30000000 0 43885 container.0
+    #execute if score $Slot Temporary matches 101 run item replace entity @s armor.legs from block -30000000 0 43885 container.0
+    #execute if score $Slot Temporary matches 102 run item replace entity @s armor.chest from block -30000000 0 43885 container.0
+    #execute if score $Slot Temporary matches 103 run item replace entity @s armor.head from block -30000000 0 43885 container.0
 ### OffHand     (-106)
-    execute if score $Slot Temporary matches -106 run item replace entity @s weapon.offhand from block -30000000 0 43885 container.0
+    #execute if score $Slot Temporary matches -106 run item replace entity @s weapon.offhand from block -30000000 0 43885 container.0
 
 ## Remove
     data remove storage customguicore: Temp.Clone.Restore.Items[0]
