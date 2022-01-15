@@ -22,8 +22,7 @@
 > * `Auto-Restoring GUIParts` - 自動的なパーツの再設置
 > * `Call Action Callbacks` - コールバック関数の呼び出し
 > * `Ejection of non-GUIParts` - 非GUIパーツの排出
-> ### __Methods__
-> * `customgui:blockgui/restore` - パーツの再設置
+> * `restore` - パーツの再設置
 > ### __Callbacks__
 > * `customgui:blockgui/init` - 初期化処理
 > * `customgui:blockgui/end` - 終了処理

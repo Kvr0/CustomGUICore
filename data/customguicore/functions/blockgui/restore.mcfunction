@@ -1,2 +1,0 @@
-#> customguicore:blockgui/restore
-# @api
