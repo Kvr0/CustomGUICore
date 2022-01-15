@@ -1,6 +1,6 @@
 {
     "replace": false,
     "values": [
-        "customguicore:private/install"
+        "customguicore:blockgui/private/install"
     ]
 }
