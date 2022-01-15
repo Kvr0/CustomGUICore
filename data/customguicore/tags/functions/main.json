@@ -1,6 +1,7 @@
 {
     "replace": false,
     "values": [
-        "customguicore:inventorygui/private/main"
+        "customguicore:inventorygui/private/main",
+        "customguicore:blockgui/private/main"
     ]
 }
