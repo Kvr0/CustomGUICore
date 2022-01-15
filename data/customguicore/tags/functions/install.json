@@ -1,6 +1,6 @@
 {
     "replace": false,
     "values": [
-        "customguicore:private/install"
+        "customguicore:inventorygui/private/install"
     ]
 }

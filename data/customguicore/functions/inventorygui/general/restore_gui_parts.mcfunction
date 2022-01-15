@@ -1,5 +1,5 @@
-#> customguicore:blockgui/general/restore_gui_parts
-# @within function customguicore:blockgui/general/_
+#> customguicore:inventorygui/general/restore_gui_parts
+# @within function customguicore:inventorygui/general/_
 
 ## Restore
     data modify block ~ ~ ~ Items set from storage customguicore: Temp.BlockGUI.Parts

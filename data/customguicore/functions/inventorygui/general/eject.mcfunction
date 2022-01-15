@@ -1,5 +1,5 @@
-#> customguicore:blockgui/general/eject
-# @within function customguicore:blockgui/general/eject_loop
+#> customguicore:inventorygui/general/eject
+# @within function customguicore:inventorygui/general/eject_loop
 
 summon item ~ ~ ~ {Item:{id:"minecraft:barrier",Count:1b},Tags:[new]}
 
