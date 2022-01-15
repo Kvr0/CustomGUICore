@@ -14,32 +14,68 @@
 > * [`InventoryGUI`](#InventoryGUI)  
 > * [`FloatingGUI`](#FloatingGUI)  
 
-## BlockGUI
+# BlockGUI
 >     ブロックインベントリーを利用するGUI
-> ### __Features__
-> * `GUIParts Detection Priority` - 選択優先度を設定
-> * `Selected GUIParts Detection` - パーツ選択を感知
-> * `Auto-Restoring GUIParts` - 自動的なパーツの再設置
-> * `Call Action Callbacks` - コールバック関数の呼び出し
-> * `Ejection of non-GUIParts` - 非GUIパーツの排出
-> * `restore` - パーツの再設置
-> ### __Callbacks__
-> * `customgui:blockgui/init` - 初期化処理
-> * `customgui:blockgui/end` - 終了処理
-> * `customgui:blockgui/selected` - パーツ選択時処理
-> * `customgui:blockgui/load_restoreitem` - 再設置アイテムの読み込み
-> ### __Values for callback__
+## Features
+> * `Callback` - GUIの内容が変更されたとき、コールバック呼出
+> * `Slot` - アイテム設置可能なスロット
+> * `Eject` - 非GUIパーツのアイテムを排出
+> * `Restore` - GUIパーツの再配置
+> * `Delete Parts` - GUI外パーツの削除
+## Callbacks
+> * `customgui:blockgui/init`
+> * `customgui:blockgui/end`
+> * `customgui:blockgui/changed`
+> 
+> * Callback Data
 > ```
-> customgui: [storage]
->   └ BlockGUI [compound]
->       ├ Selected [compound]
->       │   ├ Slot [byte]           :out
->       │   ├ Data [compound]       :out
->       │   └ GUITag[] [string[]]   :out
->       └ Restore [compound]
->           ├ Items[] [item[]]      :in
->           ├ Data [compound]       :out
->           └ GUITag[] [string[]]   :out
+> root
+>   └ Callback
+>       └ ChangedItems        :item[]
+> ```
+## Entity Tags
+> * `BlockGUI.Base`
+## General Process
+> 1. `Check BlockGUI Initialized`
+>     1. `Initialize BlockGUI`
+> 1. `Check Block Destroy`
+>     1. `Invoke End Callback`
+>     1. `Kill BlockGUI Base Entity`
+> 1. `Check GUI Change`
+>     1. `Find Changed Slot`
+>     1. `Invoke Changed Callback`
+> 1. `Ejects Out-of-slot Items`
+> 1. `Restore GUI Parts`
+> 1. `Delete Parts Outside GUI`
+## GUI Data
+> * GUIPart Data
+>   ```
+>   root
+>     ├ id                  :string
+>     ├ Count               :int
+>     └ tag                 :compound
+>         └ BlockGUI        :compound
+>             └ isSlot      :bool
+>   ```
+> * GUI Data
+>   ```
+>   root
+>       id          :string
+>       Parts       :part[]
+>       Initialized :bool
+>   ```
+## Example
+> ```
+> ## Set GUI Data
+>     data modify storage customguicore: BlockGUI.Data set value {id:"example",Parts:[]}
+> 
+> ## Add GUI Part
+>     data modify storage customguicore: BlockGUI.Data.Parts append value {Slot:0b, id:"stone", Count:1b,tag:{BlockGUI:{},display:{Name:'{"text":"GreatPerfectHugeBig-Stone"}'}}}
+> ## Add GUI Slot
+>     data modify storage customguicore: BlockGUI.Data.Parts append value {Slot:1b, id:"glass_pane", Count:1b, tag:{BlockGUI:{isSlot:1b},display:{Name:'{"text":"EMPTTYYYY-Slot"}'}}}
+> 
+> ## Place BlockGUI
+>     function customguicore:blockgui/place
 > ```
 
 ## InventoryGUI
