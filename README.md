@@ -127,8 +127,6 @@
 ## Slots
 > * `HotBar`    ...    0 -   8
 > * `Inventory` ...    9 -  35
-> * `Armor`     ...  100 - 103
-> * `OffHand`   ... -106
 ## Example
 > ```
 > ## Set GUI Data
