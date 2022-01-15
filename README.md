@@ -5,10 +5,6 @@
 > * `Minecraft 1.18`
 > * `RootCore` (https://github.com/Kvr0/RootCore)
 
-## Common Features
-> * `Delete GUIParts From Player Inventory` - GUIパーツをプレイヤーのインベントリーから削除
-> * `Kill GUIParts Item Entity` - GUIパーツのアイテムエンティティを削除
-
 ## GUIs
 > * [`BlockGUI`](#BlockGUI)  
 > * [`InventoryGUI`](#InventoryGUI)  

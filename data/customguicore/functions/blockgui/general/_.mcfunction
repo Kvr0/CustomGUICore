@@ -15,7 +15,7 @@
     execute unless score $Initialized Temporary matches 1 run data modify storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].BlockGUI.Initialized set value 1b
 
 ## Check Block Destroy
-    execute store result score $BlockDestroy Temporary unless block ~ ~ ~ barrel
+    execute store result score $BlockDestroy Temporary unless block ~ ~ ~ #api:container
 
 ## Invoke End Callback
     execute if score $BlockDestroy Temporary matches 1 run function #customguicore:blockgui/end
