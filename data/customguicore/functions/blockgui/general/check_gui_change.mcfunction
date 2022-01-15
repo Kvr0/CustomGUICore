@@ -16,5 +16,3 @@ scoreboard players set $GUIChanged Temporary 0
 
 ### Compare Parts Count
     execute unless score $Block.Count Temporary = $BlockGUI.Count Temporary run scoreboard players add $GUIChanged Temporary 1
-
-scoreboard players get $GUIChanged Temporary

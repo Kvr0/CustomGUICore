@@ -24,24 +24,24 @@
     execute if score $BlockDestroy Temporary matches 1 run kill @s
 
 ## Check GUI Change
-    execute store result score $GUIChanged Temporary run function customguicore:blockgui/general/check_gui_change
-
-## Invoke Changed Callback
-    execute if score $GUIChanged Temporary matches 1.. run function #customguicore:blockgui/changed
-### GUIデータを更新
-    data modify storage customguicore: Temp.BlockGUI set from storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].BlockGUI
+    execute unless score $BlockDestroy Temporary matches 1 run function customguicore:blockgui/general/check_gui_change
 
 ## Delete Parts From Block
-    function customguicore:blockgui/general/delete_parts_from_block
+    execute unless score $BlockDestroy Temporary matches 1 run function customguicore:blockgui/general/delete_parts_from_block
+
+## Find Changed Slot
+    execute unless score $BlockDestroy Temporary matches 1 if score $GUIChanged Temporary matches 1.. run function customguicore:blockgui/general/find_changed_slot
+
+## Invoke Changed Callback
+    execute unless score $BlockDestroy Temporary matches 1 if score $GUIChanged Temporary matches 1.. run function #customguicore:blockgui/changed
+### GUIデータを更新
+    execute unless score $BlockDestroy Temporary matches 1 run data modify storage customguicore: Temp.BlockGUI set from storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].BlockGUI
 
 ## Eject Out of slot Items
-    function customguicore:blockgui/general/eject_out_of_slot_items
+    execute unless score $BlockDestroy Temporary matches 1 run function customguicore:blockgui/general/eject_out_of_slot_items
 
 ## Restore GUI Parts
-    function customguicore:blockgui/general/restore_gui_parts
-
-## Delete Parts Outside GUI
-    function customguicore:blockgui/general/delete_parts_outside_gui
+    execute unless score $BlockDestroy Temporary matches 1 run function customguicore:blockgui/general/restore_gui_parts
 
 ## Reset Temp
     scoreboard players reset * Temporary
