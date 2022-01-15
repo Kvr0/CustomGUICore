@@ -1,6 +1,7 @@
 {
     "replace": false,
     "values": [
+        "customguicore:inventorygui/private/uninstall",
         "customguicore:blockgui/private/uninstall"
     ]
 }
