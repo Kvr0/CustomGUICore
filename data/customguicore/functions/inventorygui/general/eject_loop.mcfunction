@@ -3,7 +3,7 @@
 
 ## Load Data
     execute store result score $Slot.Player Temporary run data get storage customguicore: Temp.Clone.Player.Items[0].Slot 1
-    execute store result score $Slot.InventoryGUI Temporary run data get storage customguicore: Temp.Clone.InventoryGUI.Items[0].Slot 1
+    execute store result score $Slot.InventoryGUI Temporary run data get storage customguicore: Temp.Clone.InventoryGUI.Items[0].tag.InventoryGUI.Slot 1
     execute store result score $isSlot Temporary run data get storage customguicore: Temp.Clone.InventoryGUI.Items[0].tag.InventoryGUI.isSlot 1
 
 ## Eject

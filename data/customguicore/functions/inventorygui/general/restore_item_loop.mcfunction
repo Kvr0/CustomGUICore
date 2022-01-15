@@ -2,7 +2,7 @@
 # @within function customguicore:inventorygui/general/restore_gui_parts
 
 ## Slot
-    execute store result score $Slot Temporary run data get storage customguicore: Temp.Clone.Restore.Items[0].Slot 1
+    execute store result score $Slot Temporary run data get storage customguicore: Temp.Clone.Restore.Items[0].tag.InventoryGUI.Slot 1
     data remove storage customguicore: Temp.Clone.Restore.Items[0].Slot
 
 ## Load Data

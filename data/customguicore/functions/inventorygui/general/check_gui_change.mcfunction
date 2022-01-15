@@ -24,3 +24,4 @@ scoreboard players set $GUIChanged Temporary 0
     execute unless score $Player.Count Temporary = $InventoryGUI.Count Temporary run scoreboard players add $GUIChanged Temporary 1
     execute unless score $Player.Count Temporary = $PlayerCount.Last Temporary run scoreboard players add $GUIChanged Temporary 1
     execute unless score $InventoryGUI.Count Temporary = $PlayerCount.Last Temporary run scoreboard players add $GUIChanged Temporary 1
+
