@@ -49,15 +49,16 @@
 > * GUI Data
 >   ```
 >   root
->       id          :string
->       Parts       :part[]
->       Initialized :bool
+>     ├ id          :string
+>     ├ Name        :nbt-string
+>     ├ Parts       :part[]
+>     └ Initialized :bool
 >   ```
 
 ## Example
 > ```
 > ## Set GUI Data
->     data modify storage customguicore: BlockGUI.Data set value {id:"example",Parts:[]}
+>     data modify storage customguicore: BlockGUI.Data set value {id:"example",Parts:[],Name:'{"text":"CustomGUI"}'}
 > 
 > ## Add GUI Part
 >     data modify storage customguicore: BlockGUI.Data.Parts append value {Slot:0b, id:"stone", Count:1b,tag:{BlockGUI:{},display:{Name:'{"text":"GreatPerfectHugeBig-Stone"}'}}}
