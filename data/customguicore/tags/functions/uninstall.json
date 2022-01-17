@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "values": [
+        "customguicore:floatinggui/private/uninstall",
+        "customguicore:inventorygui/private/uninstall",
+        "customguicore:blockgui/private/uninstall"
+    ]
+}
