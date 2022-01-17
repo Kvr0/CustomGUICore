@@ -141,33 +141,82 @@
 >     function customguicore:inventorygui/set
 > ```
 
-## FloatingGUI
+# FloatingGUI
 >     空中に表示されたテキストを利用するGUI
-> ### __Features__
-> * `GUIParts Detection Priority` - 選択優先度を設定
-> * `Selected GUIParts Detection` - パーツ選択を感知
-> * `Call Action Callbacks` - コールバック関数の呼び出し
-> * `Summon and TP Specific Position` - 相対位置の指定
-> * `Enable to Operate by Group` - グループ単位で操作可能
-> * `Limitation of players who can operate` - 操作可能プレイヤーの制限
-> ### __Methods__
-> * `customgui:floatinggui/install` - GUIの設置
-> * `customgui:floatinggui/reset` - GUIパーツの再設置
-> * `customgui:floatinggui/delete` - GUIパーツの削除
-> * `customgui:floatinggui/end` - GUIの終了処理
-> ### __Callbacks__
-> * `customgui:floatinggui/selected` - パーツ選択時処理
-> * `customgui:floatinggui/load_restoreparts` - 再設置GUIパーツの読み込み
-> ### __Values for callback__
+## Features
+> * `Callback`
+> * `RelativePos`
+## Callbacks
+> * `customgui:floatinggui/clicked`
+> ### Callback EntityTag
+> * `ClickedButton`
+> * `ClickedBase`
+> * `SameBase.Button`
+> * `SameBase.ButtonBase`
+> * `ClickedPlayer`
+> ### Callback API
+> * `Kill Invisible`
+> * `Delete Buttons`
+> * `Add Buttons`
+> * `End GUI`
+> ### Callback Data
 > ```
-> customgui: [storage]
->   └ FloatingGUI [compound]
->       ├ Selected [compound]
->       │   ├ Id [byte]             :out
->       │   ├ Data [compound]       :out
->       │   └ GUITag[] [string[]]   :out
->       └ Restore [compound]
->           ├ Parts[] [guipart[]]   :in
->           ├ Data [compound]       :out
->           └ GUITag[] [string[]]   :out
+> root
+>   └ Callback
+>       └ FloatingGUI
+>           ├ id        :string
+>           ├ BaseID    :int
+>           └ ButtonID  :int
+> ```
+## Entity Tags
+> * `FloatingGUI.Base`
+> * `FloatingGUI.ButtonBase`
+> * `FloatingGUI.Button`
+## Install Data
+> ### Button Data
+> ```
+> root
+>   ├ ButtonID          :int
+>   ├ Text              :nbt-string
+>   └ RelativePos
+>       ├ Pos [double[3]]
+>       ├ Rotate [bool]
+>       └ isLocal [bool]
+> ```
+> ### Install Data
+> ```
+> root            :FloatingGUI
+>     id          :string
+>     Buttons     :button[]
+> ```
+## Example
+> ```
+> ## Set GUI Data
+>     data modify storage customguicore: FloatingGUI set value {id:"example",Buttons:[]}
+> ### Add Buttons
+>     data modify storage customguicore: FloatingGUI.Buttons append value {ButtonID:0,Text:'{"text":" - A - "}',RelativePos:{Pos:[-1.0d,0.0d,0.0d],Rotate:1b,isLocal:0b}}
+>     data modify storage customguicore: FloatingGUI.Buttons append value {ButtonID:1,Text:'{"text":" - B - "}',RelativePos:{Pos:[0.0d,0.0d,0.0d],Rotate:1b,isLocal:0b}}
+>     data modify storage customguicore: FloatingGUI.Buttons append value {ButtonID:0,Text:'{"text":" - C - "}',RelativePos:{Pos:[1.0d,0.0d,0.0d],Rotate:1b,isLocal:0b}}
+> ### Install GUI
+>     execute positioned ~ ~1 ~ run function customguicore:floatinggui/install
+> ```
+> ### Callback
+> ```
+> ## Set GUI Data
+>     execute if data storage customguicore: {Callback:{FloatingGUI:{id:"example"}}} run data modify storage customguicore: FloatingGUI set value {id:"example",Buttons:[]}
+> 
+> ## Add Buttons 1
+>     execute if data storage customguicore: {Callback:{FloatingGUI:{id:"example",ButtonID:0}}} run data modify storage customguicore: FloatingGUI.Buttons append value {ButtonID:1,Text:'{"text":" - D - "}',RelativePos:{Pos:[-1.0d,0.0d,0.0d],Rotate:1b,isLocal:0b}}
+>     execute if data storage customguicore: {Callback:{FloatingGUI:{id:"example",ButtonID:0}}} run data modify storage customguicore: FloatingGUI.Buttons append value {ButtonID:1,Text:'{"text":" - E - "}',RelativePos:{Pos:[0.0d,0.0d,0.0d],Rotate:1b,isLocal:0b}}
+>     execute if data storage customguicore: {Callback:{FloatingGUI:{id:"example",ButtonID:0}}} run data modify storage customguicore: FloatingGUI.Buttons append value {ButtonID:1,Text:'{"text":" - F - "}',RelativePos:{Pos:[1.0d,0.0d,0.0d],Rotate:1b,isLocal:0b}}
+> 
+> ## Add Buttons 0
+>     execute if data storage customguicore: {Callback:{FloatingGUI:{id:"example",ButtonID:1}}} run data modify storage customguicore: FloatingGUI.Buttons append value {ButtonID:0,Text:'{"text":" - A - "}',RelativePos:{Pos:[-1.0d,0.0d,0.0d],Rotate:1b,isLocal:0b}}
+>     execute if data storage customguicore: {Callback:{FloatingGUI:{id:"example",ButtonID:1}}} run data modify storage customguicore: FloatingGUI.Buttons append value {ButtonID:0,Text:'{"text":" - B - "}',RelativePos:{Pos:[0.0d,0.0d,0.0d],Rotate:1b,isLocal:0b}}
+>     execute if data storage customguicore: {Callback:{FloatingGUI:{id:"example",ButtonID:1}}} run data modify storage customguicore: FloatingGUI.Buttons append value {ButtonID:0,Text:'{"text":" - C - "}',RelativePos:{Pos:[1.0d,0.0d,0.0d],Rotate:1b,isLocal:0b}}
+> 
+> ## Delete Buttons
+>     execute if data storage customguicore: {Callback:{FloatingGUI:{id:"example"}}} run function customguicore:floatinggui/api/delete_buttons
+> ## Add Buttons
+>     execute if data storage customguicore: {Callback:{FloatingGUI:{id:"example"}}} run function customguicore:floatinggui/api/add_buttons
 > ```
