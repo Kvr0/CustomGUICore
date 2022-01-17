@@ -26,6 +26,13 @@
 ## Check GUI Change
     execute unless score $BlockDestroy Temporary matches 1 run function customguicore:blockgui/general/check_gui_change
 
+## Reset Callback
+    data modify storage customguicore: Callback.BlockGUI.ChangedItems set value []
+    data modify storage customguicore: Callback.BlockGUI.id set from storage customguicore: Temp.BlockGUI.id
+
+## Find Picked Slot
+    execute unless score $BlockDestroy Temporary matches 1 if score $GUIChanged Temporary matches 1.. run function customguicore:blockgui/general/find_picked_slot
+
 ## Delete Parts From Block
     execute unless score $BlockDestroy Temporary matches 1 run function customguicore:blockgui/general/delete_parts_from_block
 

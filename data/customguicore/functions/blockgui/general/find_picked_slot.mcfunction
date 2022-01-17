@@ -1,4 +1,4 @@
-#> customguicore:blockgui/general/find_changed_slot
+#> customguicore:blockgui/general/find_picked_slot
 # @within function customguicore:blockgui/general/_
 
 ## Clone Data
@@ -7,4 +7,4 @@
 
 
 ## Find Loop
-    execute if data storage customguicore: Temp.Clone.Block.Items[0] if data storage customguicore: Temp.Clone.BlockGUI.Items[0] run function customguicore:blockgui/general/find_loop
+    execute if data storage customguicore: Temp.Clone.Block.Items[0] if data storage customguicore: Temp.Clone.BlockGUI.Items[0] run function customguicore:blockgui/general/find_picked_loop
