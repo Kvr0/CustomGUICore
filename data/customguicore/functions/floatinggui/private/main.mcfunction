@@ -2,4 +2,4 @@
 # @within tag/function customguicore:main
 
 ## General
-    function customguicore:floatinggui/general/_
+    execute if data storage core: Installed.CustomGUICore.FloatingGUI run function customguicore:floatinggui/general/_
