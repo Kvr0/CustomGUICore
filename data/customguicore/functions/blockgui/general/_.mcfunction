@@ -8,6 +8,7 @@
     data modify storage customguicore: Temp.BlockGUI set from storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].BlockGUI
 
 ## Check BlockGUI Initialized
+    scoreboard players set $Initialized Temporary 0
     execute store result score $Initialized Temporary if data storage customguicore: Temp.BlockGUI.Initialized
 
 ## Initialize BlockGUI
