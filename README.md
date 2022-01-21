@@ -47,11 +47,12 @@
 > * GUIPart Data
 >   ```
 >   root
->     ├ id                  :string
->     ├ Count               :int
->     └ tag                 :compound
->         └ BlockGUI        :compound
->             └ isSlot      :bool
+>     ├ id              :string
+>     ├ Count           :int
+>     ├ tag             :compound
+>     └ BlockGUI        :compound
+>         ├ isAir       :bool
+>         └ isSlot      :bool
 >   ```
 > * GUI Data
 >   ```
@@ -67,9 +68,13 @@
 >     data modify storage customguicore: BlockGUI.Data set value {id:"example",Parts:[],Name:'{"text":"CustomGUI"}'}
 > 
 > ## Add GUI Part
->     data modify storage customguicore: BlockGUI.Data.Parts append value {Slot:0b, id:"stone", Count:1b,tag:{BlockGUI:{},display:{Name:'{"text":"GreatPerfectHugeBig-Stone"}'}}}
-> ## Add GUI Slot
->     data modify storage customguicore: BlockGUI.Data.Parts append value {Slot:1b, id:"glass_pane", Count:1b, tag:{BlockGUI:{isSlot:1b},display:{Name:'{"text":"EMPTTYYYY-Slot"}'}}}
+>     data modify storage customguicore: BlockGUI.Data.Parts append value {Slot:0b, BlockGUI:{}, id:"stone", Count:1b,tag:{display:{Name:'{"text":"GreatPerfectHugeBig-Stone"}'}}}
+> 
+>     data modify storage customguicore: BlockGUI.Data.Parts append value {Slot:1b, BlockGUI:{isSlot:1b}, id:"glass_pane", Count:1b, tag:{display:{Name:'{"text":"EMPTTYYYY-Slot"}'}}}
+> 
+>     data modify storage customguicore: BlockGUI.Data.Parts append value {Slot:2b, BlockGUI:{isSlot:1b,isAir:1b}}
+> 
+>     data modify storage customguicore: BlockGUI.Data.Parts append value {Slot:3b, BlockGUI:{isAir:1b}}
 > 
 > ## Place BlockGUI
 >     function customguicore:blockgui/place
