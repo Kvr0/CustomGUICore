@@ -10,5 +10,6 @@ function customguicore:blockgui/general/place/apply_blockgui_tag
 data modify storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].BlockGUI set from storage customguicore: BlockGUI.Data
 
 data modify block ~ ~ ~ CustomName set from storage customguicore: BlockGUI.Data.Name
+data modify block ~ ~ ~ Items set from storage customguicore: BlockGUI.Data.Parts
 
 tag @e remove new
