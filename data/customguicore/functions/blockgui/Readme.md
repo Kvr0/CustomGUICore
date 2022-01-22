@@ -17,7 +17,8 @@
 > ```
 > root
 >   └ Callback
->       └ ChangedItems        :item[]
+>       └ BlockGUI
+>           └ ChangedItems        :item[]
 > ```
 
 ## Entity Tags

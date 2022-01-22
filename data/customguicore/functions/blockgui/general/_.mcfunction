@@ -25,7 +25,7 @@
         execute if score $BlockDestroy Temporary matches 1 run kill @s
 
 ## Check GUI Change
-# Callback.ChangedItems
+# Callback.BlockGUI.ChangedItems
 # Temp.RestoreItems
 # Temp.EjectItems
     execute unless score $BlockDestroy Temporary matches 1 run function customguicore:blockgui/general/check_gui_change/_

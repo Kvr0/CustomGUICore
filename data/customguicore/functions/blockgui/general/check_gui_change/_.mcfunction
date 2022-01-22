@@ -1,7 +1,7 @@
 #> customguicore:blockgui/general/check_gui_change/_
 # @within function customguicore:blockgui/general/_
 
-# Callback.ChangedItems
+# Callback.BlockGUI.ChangedItems
 # Temp.RestoreItems
 # Temp.EjectItems
 
@@ -13,7 +13,7 @@
     data modify storage customguicore: Temp.Clone.BlockGUI.Parts set from storage customguicore: Temp.BlockGUI.Parts
 
 ## Reset Buffers
-    data modify storage customguicore: Callback.ChangedItems set value []
+    data modify storage customguicore: Callback.BlockGUI.ChangedItems set value []
     data modify storage customguicore: Temp.RestoreItems set value []
     data modify storage customguicore: Temp.EjectItems set value []
 
@@ -25,4 +25,4 @@
     execute if data storage customguicore: Temp.Clone.BlockGUI.Parts[0] run function customguicore:blockgui/general/check_gui_change/push_blockgui_remaining
 
 ## Changed Flag
-    execute store result score $GUIChanged Temporary if data storage customguicore: Callback.ChangedItems[]
+    execute store result score $GUIChanged Temporary if data storage customguicore: Callback.BlockGUI.ChangedItems[]
