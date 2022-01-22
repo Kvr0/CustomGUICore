@@ -33,7 +33,7 @@
     ## $Block.Slot > $BlockGUI.Slot
     ### If !isAir                   => ChangedItems
     execute if score $Block.Slot Temporary > $BlockGUI.Slot Temporary if score $BlockGUI.isAir Temporary matches 0 run data modify storage customguicore: Callback.BlockGUI.ChangedItems append value {Slot:0b, id:"air"}
-    execute if score $Block.Slot Temporary > $BlockGUI.Slot Temporary store result storage customguicore: Callback.BlockGUI.ChangedItems[-1].Slot byte 1 run scoreboard players get $BlockGUI.Slot Temporary
+    execute if score $Block.Slot Temporary > $BlockGUI.Slot Temporary if score $BlockGUI.isAir Temporary matches 0 store result storage customguicore: Callback.BlockGUI.ChangedItems[-1].Slot byte 1 run scoreboard players get $BlockGUI.Slot Temporary
     ### If !isAir                   => RestoreItem
     execute if score $Block.Slot Temporary > $BlockGUI.Slot Temporary if score $BlockGUI.isAir Temporary matches 0 run data modify storage customguicore: Temp.RestoreItems append from storage customguicore: Temp.Clone.BlockGUI.Parts[0]
     ### Step

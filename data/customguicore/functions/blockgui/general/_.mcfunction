@@ -37,7 +37,7 @@
     execute unless score $BlockDestroy Temporary matches 1 run function customguicore:blockgui/general/eject_items
 
 ## Restore GUI Parts
-    execute unless score $BlockDestroy Temporary matches 1 run data modify block ~ ~ ~ Items set from storage customguicore: Temp.RestoreItems
+    execute unless score $BlockDestroy Temporary matches 1 if score $GUIChanged Temporary matches 1.. run data modify block ~ ~ ~ Items set from storage customguicore: Temp.RestoreItems
 
 ## Reset Temp
     scoreboard players reset * Temporary
