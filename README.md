@@ -29,6 +29,9 @@
 >   └ Callback
 >       └ ChangedItems        :item[]
 > ```
+> * API
+> >* `Consume` - `{Slot:0b, Count: 0b}`
+> >* `SetItem` - `{Slot:0b, [id: ""], [Count: 0b], [tag: {}]}`
 ## Entity Tags
 > * `BlockGUI.Base`
 ## General Process
