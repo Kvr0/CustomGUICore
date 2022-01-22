@@ -4,12 +4,15 @@
 
     execute store result score $Item.Slot Temporary run data get storage customguicore: Temp.Clone.RestoreItems[0].Slot
 
+<<<<<<< HEAD
 ## $Item.Slot > $SetItem.Slot
     execute if score $Item.Slot Temporary > $SetItem.Slot Temporary run data modify storage customguicore: Temp.RestoreItems append value {Slot:0b,Count:1b,id:"air"}
     execute if score $Item.Slot Temporary > $SetItem.Slot Temporary run data modify storage customguicore: Temp.RestoreItems[-1].Slot set from storage customguicore: Input.SetItem.Slot
     execute if score $Item.Slot Temporary > $SetItem.Slot Temporary if data storage customguicore: Input.SetItem.id run data modify storage customguicore: Temp.RestoreItems[-1].id set from storage customguicore: Input.SetItem.id
     execute if score $Item.Slot Temporary > $SetItem.Slot Temporary if data storage customguicore: Input.SetItem.Count run data modify storage customguicore: Temp.RestoreItems[-1].Count set from storage customguicore: Input.SetItem.Count
     execute if score $Item.Slot Temporary > $SetItem.Slot Temporary if data storage customguicore: Input.SetItem.tag run data modify storage customguicore: Temp.RestoreItems[-1].tag merge from storage customguicore: Input.SetItem.tag
+=======
+>>>>>>> 9ec3dd3e6273a51d2c3c09c0862a6efe80d43cf3
 
 ## $Item.Slot = $SetItem.Slot
     execute if score $Item.Slot Temporary = $SetItem.Slot Temporary if data storage customguicore: Input.SetItem.id run data modify storage customguicore: Temp.Clone.RestoreItems[0].id set from storage customguicore: Input.SetItem.id
